@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color:wheat;
+            padding:6px;
+            border-radius: 7px;
+            width:70px;
+            size:20px;
+        }
+         .clear{
+            background-color:wheat;
+            padding:6px;
+            border-radius: 7px;
+            width:70px;
+            size:20px;
+         }
+         body{
+            background-color:aquamarine;
+         }
+         input{
+            border-radius: 6px;
+            padding:5px;
+            border-width:2px;
+         }
+         h1{
+            color:brown;
+         }
+    </style>
+
+    
+    <script>
+        function func(){
+            var name=document.fv.name.value;
+            var mobile=document.fv.mobile.value;
+            var email=document.fv.email.value;
+            var reg=/^([a-zA-Z0-9\._]+)@([a-z]+).([a-z]+){2,3}$/;
+            var password=document.fv.password.value;
+            var checkpassword=document.fv.checkpassword.value;
+            if(name==''){
+                alert("Enter Your Name");
+                return false;
+            }
+            if(name.length<3){
+                alert("Check Your Name");
+                return false;
+            }
+            if(mobile==''){
+                alert("Enter Your Phone Number");
+                return false;
+            }
+            if(isNaN(mobile)||mobile.length<10){
+                alert("Please Check Your Phone Number");
+                return false;
+            }
+            if(email==''){
+                alert("Enter Your Email Id");
+                return false;
+            }
+            if(!email.match(reg)){
+                alert("Please  Check Your Mail ID ");
+                return false;
+            }
+            if(password==''){
+                alert("Enter Your Password");
+                return false;
+            }if(password.length<8){
+                alert("Password Must be 8 characters or digits");
+                return false;
+            }
+            if(checkpassword==''){
+                alert("Check Password");
+                return false;
+            }
+            if(!checkpassword.match(password)){
+                alert("Enter Correct Password");
+                return false;
+            }
+            return true;
+        }
+    </script> 
+</head>
+<body>
+    <center>
+    <h1>Regular expressions</h1>
+    <form name="fv" onsubmit="return func()">
+      <input type="text" placeholder="Enter Your Name" name="name"/></br></br>
+      <input type="number" placeholder="Enter Your Number" name="mobile"/></br></br>
+      <input type="email" placeholder="Enter Your E-mail Id" name="email"/></br></br>
+      <input type="password" placeholder="Enter Your password" name="password"/></br></br>
+      <input type="password" placeholder="Re-type password" name="checkpassword"/></br></br>
+      <button style="color:blue">Submit</button>&nbsp;&nbsp;
+      <input class="clear" style="color:red" type="reset" value="Clear"/>
+    </form>
+    </center>
+</body>
+</html>
